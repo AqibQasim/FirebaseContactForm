@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V17</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+<script type="text/javascript">
+	function getcontact(){
+		
+
+		var form = document.getElementsByName('points');
+		if(form[0].checked)
+		{
+			var rav = document.getElementById('r1').value;
+		}
+		else if(form[1].checked)
+		{
+			var rav = (document.getElementById('r2').value)
+		}
+		else if(form[2].checked)
+		{
+			var rav = (document.getElementById('r3').value)
+		}
+		else if(form[3].checked)
+		{
+			var rav = (document.getElementById('r4').value)
+		}
+		else if(form[4].checked)
+		{
+			var rav = (document.getElementById('r5').value)
+		}
+
+		var Fname = "";
+		var Lname = "";
+		var email = "";
+		var review = "";
+		var message = "";
+
+		Fname = document.getElementById('firstname').value;
+		Lname = document.getElementById('lastname').value;
+		email = document.getElementById('Email').value;
+		review = rav
+		message = document.getElementById('Message').value;
+
+		firebase.database().ref('data').push({
+
+			FIRSTNAME: Fname,
+			LASTNAME: Lname,
+			EMAIL: email,
+			REVIEW: review,
+			MESSAGE: message
+			 
+
+		});
+		alert('Thanks for contacting us we will back to you as soon as possible');
+	}
+
+	
+</script>
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Send Us A Message
+				</span>
+
+				<label class="label-input100" for="first-name">Tell us your name *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+					<input id="firstname" class="input100" type="text" name="first-name" placeholder="First name">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
+					<input id="lastname" class="input100" type="text" name="last-name" placeholder="Last name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="email">Enter your email *</label>
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input id="Email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="phone">Review</label>
+				<div class="wrap-input100" id="Review">
+					<input type="radio" id="r1" name="points" value="1" style="margin-left: 20px;" > 1
+					<input type="radio" id="r2" name="points" value="2" style="margin-left: 20px;"> 2 
+					<input type="radio" id="r3" name="points" value="3" style="margin-left: 20px;"> 3 
+					<input type="radio" id="r4" name="points" value="4" style="margin-left: 20px;"> 4 
+					<input type="radio" id="r5" name="points" value="5" style="margin-left: 20px;"> 5 
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="message">Message *</label>
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<textarea id="Message" class="input100" name="message" placeholder="Write us a message"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" onclick="getcontact()">
+						Send Message
+					</button>
+				</div>
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+				<div class="flex-w size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-map-marker"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Address
+						</span>
+
+						<span class="txt2">
+							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-phone-handset"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Lets Talk
+						</span>
+
+						<span class="txt3">
+							+1 800 1236879
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-envelope"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							General Support
+						</span>
+
+						<span class="txt3">
+							contact@example.com
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDHbP7vfgMs0njDlwSFhTiCXxplM9fpjZk",
+    authDomain: "project-acf7a.firebaseapp.com",
+    databaseURL: "https://project-acf7a.firebaseio.com",
+    projectId: "project-acf7a",
+    storageBucket: "project-acf7a.appspot.com",
+    messagingSenderId: "311442606841",
+    appId: "1:311442606841:web:72101c1d11da461dc7f028",
+    measurementId: "G-4M5SPHEQYD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+</body>
+</html>
